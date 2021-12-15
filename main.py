@@ -1,5 +1,4 @@
 from typing import List
-<< << << < HEAD
 
 
 def read_input():
@@ -19,18 +18,6 @@ def read_input():
     return map
 
 
-def read_ships(map, size: int, count: int):
-    # reading input for <count> <size>-sized ships
-    for _ in range(count):
-        i, j = input_read()
-        while map[i][j] != 0:
-            print("please write a non occupied tile coords")
-            i, j = None
-
-        for i in range(i, i+size):
-            map[i][j] = 2
-
-
 def input_read():
     while True:
         print('Введіть координату клітинки:')
@@ -47,6 +34,18 @@ def input_read():
         else:
             break
     return (ord(point[0]) - 97, int(point[1]) - 1)
+
+
+def read_ships(map, size: int, count: int):
+    # reading input for <count> <size>-sized ships
+    for _ in range(count):
+        i, j = input_read()
+        while map[i][j] != 0:
+            print("please write a non occupied tile coords")
+            i, j = None
+
+        for i in range(i, i+size):
+            map[i][j] = 2
 
 
 def ships_destroyed(map):
@@ -74,3 +73,16 @@ def game():
         print(shots_map1)
         print('Хід другого гравця:')
         shot = input_read()
+
+
+def printMap(map: List[List[int]]):
+    print("    A B C D E F G H I J")
+    row_number = 1
+    for row in map:
+        if row_number == 10:
+            mid = "■".join(row) + "■ "
+            print(f"{row_number}|{mid}|")
+        else:
+            mid = "■".join(row) + "■ "
+            print(f"{row_number} |{mid}|")
+        row_number = row_number + 1
