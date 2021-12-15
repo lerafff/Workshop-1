@@ -15,14 +15,22 @@ def read_input():
     read_ships(map, 2, two_sized)
     read_ships(map, 1, one_sized)
 
+    return map
+
 
 def read_ships(map, size: int, count: int):
-    i, j = -1,-1
-    while map[i][j] !=0:
-        print("please write a non occupied tile coords")
-        i, j = -1,-1 # read input with other func
-    
-    
+    # reading input for <count> <size>-sized ships
+    for _ in range(count):
+        i, j = -1, -1
+        while map[i][j] != 0:
+            print("please write a non occupied tile coords")
+            i, j = -1, -1  # read input with other func
+
+        for i in range(i, i+size):
+            map[i][j] = 2
+
 
 print("Input for player 1")
 map_p1 = read_input()
+map_p2 = read_input()
+
