@@ -21,7 +21,7 @@ def read_input():
 def read_ships(map, size: int, count: int):
     # reading input for <count> <size>-sized ships
     for _ in range(count):
-        i, j = input_read
+        i, j = input_read()
         while map[i][j] != 0:
             print("please write a non occupied tile coords")
             i, j = None
