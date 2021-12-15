@@ -21,7 +21,7 @@ def read_input():
 def read_ships(map, size: int, count: int):
     # reading input for <count> <size>-sized ships
     for _ in range(count):
-        i, j = None
+        i, j = read_input()
         while map[i][j] != 0:
             print("please write a non occupied tile coords")
             i, j = None
@@ -42,33 +42,27 @@ print("Input for player 1")
 map_p1 = read_input()
 map_p2 = read_input()
 
-while 1:
-    
-=======
-"""
-Battlehip game
-"""
 
 def print_field(field):
-    for i in  field:
+    for i in field:
         for j in range(len(i)):
-            print (i[j], end= '    ')
+            print(i[j], end='    ')
         print()
 
 
 def shoot(field):
-    row=int(input('Row: '))
-    column=int(input('Column: '))
-    try: 
-        place=field[row][column]
+    row = int(input('Row: '))
+    column = int(input('Column: '))
+    try:
+        place = field[row][column]
         return (row, column)
-    except: 
+    except:
         print('Некоректні координати')
         shoot(field)
 
 
 def init():
-    field = [['.'] * field_sz for _ in range(field_sz)]
+    field = [['.'] * 10 for _ in range(10)]
     return field
 
 
@@ -126,7 +120,7 @@ def main():
 
     set_ships_field(battle_field_1, ships_1)
 
-    battle_field_2 = inti(10)
+    battle_field_2 = 10
     ships_2 = init_ships(3, [1, 2, 3])
 
     set_ships_field(battle_field_2, ships_2)
@@ -134,4 +128,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
